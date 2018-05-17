@@ -14,7 +14,7 @@ async function main() {
     const dados = colunas.slice(1, colunas.length - 1)
     const linhaJson = dados.reduce((acumulador, atual, indiceDado) => {
       return { [indiceDado + 1]: atual, ...acumulador }
-    }, { 0: indiceLinha })
+    }, { 0: indiceLinha + 1 })
 
     return linhaJson
   })
