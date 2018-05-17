@@ -9,12 +9,12 @@ async function main() {
   const padraoLinha = /^\|.+\|$/gm
   const textoCru = await _readFile(caminhoTxt, 'utf-8')
   const linhas = textoCru.match(padraoLinha)
-  const linhasParseadas = linhas.map((linha) => {
+  const linhasParseadas = linhas.map((linha, indiceLinha) => {
     const colunas = linha.split(/\|/g)
     const dados = colunas.slice(1, colunas.length - 1)
-    const linhaJson = dados.reduce((acumulador, atual, indice) => {
-      return { [indice + 1]: atual, ...acumulador }
-    }, {})
+    const linhaJson = dados.reduce((acumulador, atual, indiceDado) => {
+      return { [indiceDado + 1]: atual, ...acumulador }
+    }, { 0: indiceLinha })
 
     return linhaJson
   })
@@ -24,7 +24,7 @@ async function main() {
 
   const xlsx = json2xls(linhasSelecionadas)
   const nomeArquivo = `extracao_${Date.now()}.xlsx`
-  
+
   return fs.writeFileSync(nomeArquivo, xlsx, 'binary')
 }
 
