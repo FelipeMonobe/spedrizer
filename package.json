@@ -1,0 +1,19 @@
+{
+  "name": "spedrizer",
+  "version": "1.0.0",
+  "description": "deal with sped outputs, roughly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sped",
+    "txt",
+    "xlsx"
+  ],
+  "author": "Felipe Monobe",
+  "license": "ISC",
+  "dependencies": {
+    "json2xls": "^0.1.2"
+  }
+}
