@@ -1,21 +1,22 @@
-Programa para gerar XLSX de arquivos gerados no programa SPED.
+Programa para salvar em MongoDB arquivos gerados no programa SPED.
 Este programa respeita a ordem do arquivo TXT original, logo
 se houver hierarquia de códigos, os códigos filhos virão na
 sequência do seu respectivo pai, e o último irmão delimitará
 a presença do próximo pai.
-O arquivo XLSX é gerado na raiz do projeto com o padrão de nome
-"extracao_<codigo de data>.xlsx".
+Será criado uma instância 'spedrizer' com o nome da coleção no
+formato "extracao_<codigo de data>". O número de conexões com
+o banco de dados é opcional, sendo 5 o valor padrão.
 Good SPEDing.
 
 PS: Não esquecer de escapar espaçamentos no argumento do caminho
 do arquivo (como demonstrado no exemplo abaixo).
 
 USO:
-sintaxe geral:
-node index.js <caminho do arquivo txt> <código do pai> [<código do primeiro filho>, <código do segundo filho>, ...]
+formato da sintaxe:
+node index.js <caminho do arquivo txt> <quantidade de conexões no banco>
 
-único código:
-node index.js /home/amonobe/Documentos/Profissional/Pessoas\ Jurídicas/Helm/Arquivos/EFD-C/2017/4T/piscof1017v6.txt C100
+execução padrão (5 conexões):
+node index.js /home/xinube/Meus \Documentos/sped.txt
 
-múltiplos códigos:
-node index.js /home/amonobe/Documentos/Profissional/Pessoas\ Jurídicas/Helm/Arquivos/EFD-C/2017/4T/piscof1017v6.txt C500 C501 C505
+estabelecendo 10 conexões com o banco (pode ser mais rápido):
+node index.js /home/xinube/Meus \Documentos/sped.txt 10

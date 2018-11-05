@@ -9,11 +9,11 @@
   "keywords": [
     "sped",
     "txt",
-    "xlsx"
+    "mongodb"
   ],
   "author": "Felipe Monobe",
   "license": "ISC",
   "dependencies": {
-    "json2xls": "^0.1.2"
+    "mongodb": "^3.1.8"
   }
 }
